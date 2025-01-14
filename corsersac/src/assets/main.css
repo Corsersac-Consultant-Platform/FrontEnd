@@ -2,6 +2,7 @@
 @import 'auth-styles.css';
 @import "primeflex/themes/primeone-light.css";
 @import "primeflex/themes/primeone-dark.css";
+@import "primeicons/primeicons.css";
 
 
 *::before, *::after {
@@ -22,12 +23,15 @@ button:hover{
 }
 
 body{
-  margin: 0;
-  padding: 0;
-}
-
-.page-size{
   height: 100%;
   min-height: 100vh;
   width: 100%;
+    background-image: linear-gradient(
+            to top right,
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+    ), url("background-banner.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }

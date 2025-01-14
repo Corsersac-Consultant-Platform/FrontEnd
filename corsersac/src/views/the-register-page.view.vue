@@ -22,7 +22,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <section class="mt-6">
+  <section class="mt-8">
     <div class="auth-card ">
       <div class="auth-card-items">
         <h1 class="text-center text-white font-semibold text-xl md:text-2xl lg:text-4xl py-5"> Registra tu cuenta </h1>

@@ -14,11 +14,11 @@ export default defineComponent({
 </script>
 
 <template>
-  <router-link :to="onRedirectRoute" class="text-black-alpha-90">
+  <router-link :to="onRedirectRoute" class="text-white">
     <div class="flex items-center justify-content-center w-full" >
-      <hr class="flex-grow border-2 border-black-alpha-90" />
+      <hr class="flex-grow border-2 border-white" />
       <p class="mx-3 font-bold text-lg text-center">{{ title }}</p>
-      <hr class="flex-grow border-2 border-black-alpha-90" />
+      <hr class="flex-grow border-2 border-white" />
     </div>
   </router-link>
 </template>

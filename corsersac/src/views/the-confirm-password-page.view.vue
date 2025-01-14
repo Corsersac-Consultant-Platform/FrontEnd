@@ -18,14 +18,14 @@ export default defineComponent({
   },
   methods: {
     async submit() {
-      this.navigator.push("/sign-in")
+      this.navigator.push("/")
     }
   }
 })
 </script>
 
 <template>
-  <section class="mt-6">
+  <section class="mt-8">
     <div class="auth-card ">
       <div class="auth-card-items">
         <h1 class="text-center text-white font-semibold text-xl md:text-2xl lg:text-4xl py-5"> Ingresa nueva contraseña </h1>

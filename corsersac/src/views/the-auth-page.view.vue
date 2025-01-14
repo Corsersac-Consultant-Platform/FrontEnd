@@ -22,8 +22,8 @@ export default defineComponent({
 </script>
 
 <template>
-  <section class="mt-6">
-         <div class="auth-card ">
+  <section class="mt-8">
+         <div class="auth-card">
            <div class="auth-card-items">
              <h1 class="text-center text-white font-semibold text-xl md:text-2xl lg:text-4xl py-5"> Inicio de Sesión </h1>
              <CustomInputText v-model="username" label="Username" type="text" />
