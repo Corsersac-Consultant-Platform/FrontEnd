@@ -1,0 +1,58 @@
+:root{
+    --breakpoint-mobile: 480px;
+    --breakpoint-tablet: 768px;
+    --breakpoint-laptop: 1024px;
+    --breakpoint-desktop: 1366px;
+    --breakpoint-ultrawide: 2560px;
+}
+
+.auth-card{
+    background-color: mediumseagreen;
+    border-radius: 10px;
+    padding: 100px;
+    width: 30%;
+    margin: 0 auto;
+}
+
+.auth-card-items{
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 1326px){
+    .auth-card{
+        width: 50%;
+        padding: 90px;
+    }
+
+}
+
+
+
+
+@media screen and (max-width: 1024px){
+    .auth-card{
+        width: 60%;
+        padding: 80px;
+    }
+
+}
+
+@media screen and (max-width: 768px){
+    .auth-card{
+        width: 70%;
+        padding: 60px;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .auth-card{
+        width: 80%;
+        padding: 40px;
+    }
+}
+
+
+
+
+
