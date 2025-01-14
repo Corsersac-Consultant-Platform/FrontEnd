@@ -26,12 +26,12 @@ export default defineComponent({
 </script>
 
 <template>
-  <section class="mt-8">
+  <section>
     <div class="auth-card ">
       <div class="auth-card-items">
         <h1 class="text-center text-white font-semibold text-xl md:text-2xl lg:text-4xl py-5"> Ingresa tu nombre de usuario </h1>
         <CustomInputText label="Username" type="text" v-model="username" />
-        <CustomButton text="Recuperar" :on-click="submit" />
+        <CustomButton text="Recuperar" @onEvent="submit" />
 
       </div>
     </div>
@@ -42,5 +42,7 @@ export default defineComponent({
 </template>
 
 <style scoped>
-
+section{
+  margin-top: 150px;
+}
 </style>

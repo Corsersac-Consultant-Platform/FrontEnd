@@ -7,12 +7,13 @@ export default defineComponent({
     text: {
       type: String,
       default: 'Click me'
-    },
-    onClick: {
-      type: Function as unknown as () => InputHTMLAttributes["onClick"],
-      default: () => {}
     }
   },
+  methods: {
+    onClick(){
+      this.$emit('onEvent');
+    }
+  }
 })
 </script>
 
