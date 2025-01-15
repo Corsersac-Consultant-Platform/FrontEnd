@@ -29,4 +29,13 @@ export class UtilManager{
         }
         return null;
     }
+
+    isAdminOrTester(){
+        const decodedPayload = this.decodeToken();
+        console.log("decodedPayload", decodedPayload);
+        if (decodedPayload) {
+            return decodedPayload["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]=== "ADMIN" || decodedPayload["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]=== "TESTER";
+        }
+        return false;
+    }
 }

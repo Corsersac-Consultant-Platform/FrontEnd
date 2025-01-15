@@ -13,4 +13,8 @@ export class InvoiceService{
     async getInvoiceBySerie(serie: string){
         return await http.get(`${this.endpoint}/serie?serie=${serie}`);
     }
+
+    async updateInvoiceStatus(id: number, statusId: number){
+        return await http.patch(`${this.endpoint}/update-status/${id}`, statusId);
+    }
 }
