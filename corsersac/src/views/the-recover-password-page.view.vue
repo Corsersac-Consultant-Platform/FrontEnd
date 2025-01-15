@@ -21,7 +21,7 @@ export default defineComponent({
       this.authStore.setUsername(this.username)
       this.navigator.push("/confirm-password")
     }
-  }
+  },
 })
 </script>
 

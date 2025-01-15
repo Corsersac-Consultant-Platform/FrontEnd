@@ -27,6 +27,7 @@ export default defineComponent({
       this.$emit('update:modelValue', input.value);
     },
   },
+
 });
 </script>
 

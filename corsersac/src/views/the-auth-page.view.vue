@@ -13,7 +13,8 @@ export default defineComponent({
     return {
       username: "",
       password: "",
-      authService: new AuthService()
+      authService: new AuthService(),
+      navigator: this.$router
     }
   },
   methods: {
@@ -23,6 +24,7 @@ export default defineComponent({
          response => {
             if (response.status === 200){
               alert("Inicio de sesión exitoso");
+              this.navigator.push("/invoice-options");
             }
          }
       ).catch(
