@@ -32,7 +32,7 @@ export default defineComponent({
       <CustomSidebar/>
       <img src="../assets/corsersac-logo.webp" alt="Corsersac Logo" class="w-6" />
       <button @click="toggleSidebar" class="w-4rem h-3rem  border-transparent bg-black-alpha-90">
-        <i class="pi pi-bars text-lg"></i>
+        <i class="pi pi-bars text-lg text-white"></i>
       </button>
     </section>
     <div class="flex flex-column lg:flex-row justify-content-center align-items-center gap-5">

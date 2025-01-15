@@ -32,13 +32,13 @@ export default defineComponent({
       <CustomSidebar/>
       <img src="../assets/corsersac-logo.webp" alt="Corsersac Logo" class="w-6" />
       <button @click="toggleSidebar" class="w-4rem h-3rem  border-transparent bg-black-alpha-90">
-        <i class="pi pi-bars text-lg"></i>
+        <i class="pi pi-bars text-lg text-white"></i>
       </button>
     </section>
     <div class="flex flex-column lg:flex-row justify-content-center align-items-center gap-5">
-      <SearchOption title="Buscar por fecha" avatar-url="https://icon-library.com/images/date-icon-png/date-icon-png-7.jpg" on-redirect-route="/"/>
-      <SearchOption title="Seleccionar rango de fechas" avatar-url="https://static.thenounproject.com/png/204897-200.png" on-redirect-route="/"/>
-      <SearchOption title="Buscar por placa" avatar-url="https://cdn-icons-png.flaticon.com/512/290/290081.png" on-redirect-route="/"/>
+      <SearchOption title="Buscar por fecha" avatar-url="https://icon-library.com/images/date-icon-png/date-icon-png-7.jpg" on-redirect-route="/usage-search-date"/>
+      <SearchOption title="Seleccionar rango de fechas" avatar-url="https://static.thenounproject.com/png/204897-200.png" on-redirect-route="/usage-range-date"/>
+      <SearchOption title="Buscar por placa" avatar-url="https://cdn-icons-png.flaticon.com/512/290/290081.png" on-redirect-route="/usage-vehicleIdentifier"/>
     </div>
   </section>
 </template>

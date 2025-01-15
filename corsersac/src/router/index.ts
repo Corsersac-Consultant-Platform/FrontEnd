@@ -48,7 +48,23 @@ const router = createRouter({
           path: '/invoice-search-serie',
           name: 'invoice-search-serie-page',
           component: () => import('../views/the-invoice-search-serie.view.vue')
+      },
+      {
+          path: '/usage-search-date',
+          name: 'usage-search-date-page',
+          component: () => import('../views/the-usage-search-date.view.vue')
+      },
+      {
+          path: '/usage-range-date',
+          name: 'usage-range-date-page',
+            component: () => import('../views/the-usage-range-date.view.vue')
+      },
+      {
+          path: '/usage-vehicleIdentifier',
+          name: 'usage-vehicleIdentifier-page',
+          component: () => import('../views/the-usage-vehicleIdentifier.view.vue')
       }
+
   ],
 })
 

@@ -33,7 +33,7 @@ export default defineComponent({
           </a>
         </li>
         <li>
-          <a class="text-black-alpha-90 text-lg flex items-center gap-3 hover:text-blue-500" href="/contact">
+          <a class="text-black-alpha-90 text-lg flex items-center gap-3 hover:text-blue-500" href="/">
             <i class="pi pi-wallet"></i> Saldos por documento
           </a>
         </li>

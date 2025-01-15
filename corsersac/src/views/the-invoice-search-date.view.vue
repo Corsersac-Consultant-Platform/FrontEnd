@@ -8,7 +8,6 @@ import {Column as PvColumn, DataTable as PvDatable} from "primevue";
 import {InvoiceService} from "@/helpers/invoice.service.ts";
 import {Invoice} from "@/models/invoice.model.ts";
 import CustomButton from "@/components/custom-button.component.vue";
-import {AuthService} from "@/helpers/auth.service.ts";
 
 export default defineComponent({
   name: "the-invoice-search-date" ,
@@ -51,8 +50,8 @@ export default defineComponent({
     <section class="sidebar-content bg-white p-2 lg:hidden w-full">
       <CustomSidebar/>
       <img src="../assets/corsersac-logo.webp" alt="Corsersac Logo" class="w-6" />
-      <button @click="toggleSidebar" class="w-4rem h-3rem  border-transparent">
-        <i class="pi pi-bars text-lg"></i>
+      <button @click="toggleSidebar" class="w-4rem h-3rem  border-transparent bg-black-alpha-90">
+        <i class="pi pi-bars text-lg text-white"></i>
       </button>
     </section>
      <div class="flex flex-column lg:flex-row gap-5 align-items-center justify-content-center">
