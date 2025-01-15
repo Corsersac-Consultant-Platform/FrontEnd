@@ -118,6 +118,8 @@ export default defineComponent({
 .sidebar-content{
   display: flex;
   justify-content: space-between;
+  position: relative;
+  z-index: 100;
 }
 input{
   border-radius: 5px;

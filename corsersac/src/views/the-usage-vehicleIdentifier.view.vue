@@ -83,6 +83,8 @@ div{
 .sidebar-content{
   display: flex;
   justify-content: space-between;
+  position: relative;
+  z-index: 100;
 }
 
 .table-container{

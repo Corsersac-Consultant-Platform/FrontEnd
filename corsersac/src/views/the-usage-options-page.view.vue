@@ -67,6 +67,8 @@ button{
 .sidebar-content{
   display: flex;
   justify-content: space-between;
+  position: relative;
+  z-index: 100;
 }
 
 @media screen and (max-width: 990px){
