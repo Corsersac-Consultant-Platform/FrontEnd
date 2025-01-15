@@ -5,10 +5,11 @@ import CustomIndicator from "@/components/custom-indicator.component.vue";
 import CustomButton from "@/components/custom-button.component.vue";
 import {SignInDto} from "@/dtos/sign-in.dto.ts";
 import {AuthService} from "@/helpers/auth.service.ts";
+import {Toast as PvToast} from "primevue";
 
 export default defineComponent({
   name: "the-auth-page",
-  components: {CustomButton, CustomIndicator, CustomInputText},
+  components: {PvToast, CustomButton, CustomIndicator, CustomInputText},
   data(){
     return {
       username: "",
@@ -23,13 +24,13 @@ export default defineComponent({
       await this.authService.signIn(signInRequest).then(
          response => {
             if (response.status === 200){
-              alert("Inicio de sesión exitoso");
               this.navigator.push("/invoice-options");
+              this.$toast.add({ severity: 'success', summary: 'Inicio de sesión exitoso', detail: 'Bienvenido al sistema de corsersac', life: 3000 });
             }
          }
       ).catch(
        _ => {
-          alert("Error al iniciar sesión");
+         this.$toast.add({ severity: 'error', summary: 'Credenciales incorrectas', detail: 'Por favor, revise sus datos y vuelva a intentar', life: 3000 });
         }
       )
     }
@@ -53,6 +54,7 @@ export default defineComponent({
          <div class="mt-7">
              <CustomIndicator title="¿Aún no estas registrado?"  on-redirect-route="/sign-up"/>
          </div>
+    <pv-toast/>
   </section>
 </template>
 

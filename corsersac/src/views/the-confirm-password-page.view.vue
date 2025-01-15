@@ -5,10 +5,11 @@ import CustomInputText from "@/components/custom-input-text.component.vue";
 import CustomIndicator from "@/components/custom-indicator.component.vue";
 import {useAuthStore} from "@/stores/auth.ts";
 import {UserService} from "@/helpers/user.service.ts";
+import {Toast as PvToast} from "primevue";
 
 export default defineComponent({
   name: "the-confirm-password-page.view" ,
-  components: {CustomIndicator, CustomInputText, CustomButton},
+  components: {PvToast, CustomIndicator, CustomInputText, CustomButton},
   data(){
     const authStore = useAuthStore()
     return {
@@ -32,7 +33,7 @@ export default defineComponent({
       await this.userService.updatePassword(this.userId, this.password).then(() => {
         this.navigator.push("/")
       }).catch(() => {
-         alert("Contraseña no valida, recuerde que la contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula, un número y un carácter especial")
+        this.$toast.add({ severity: 'error', summary: 'Contraseña no valida', detail: 'Contraseña no valida, recuerde que la contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula, un número y un carácter especial', life: 3000 });
       })
     }
   },
@@ -57,6 +58,7 @@ export default defineComponent({
     <div class="mt-7">
       <CustomIndicator title="¿Aún no estas registrado?"  on-redirect-route="/sign-up"/>
     </div>
+    <pv-toast/>
   </section>
 </template>
 

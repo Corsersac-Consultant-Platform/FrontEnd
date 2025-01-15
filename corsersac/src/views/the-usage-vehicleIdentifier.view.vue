@@ -4,14 +4,14 @@ import CustomSidebar from "@/components/custom-sidebar.component.vue";
 import CustomNavbar from "@/components/custom-navbar.component.vue";
 import {useUiStore} from "@/stores/ui.ts";
 import CustomInputText from "@/components/custom-input-text.component.vue";
-import {Column as PvColumn, DataTable as PvDatable} from "primevue";
+import {Column as PvColumn, DataTable as PvDatable, Toast as PvToast} from "primevue";
 import CustomButton from "@/components/custom-button.component.vue";
 import {UsageService} from "@/helpers/usage.service.ts";
 import {Usage} from "@/models/usage.model.ts";
 
 export default defineComponent({
   name: "the-usage-vehicleIdentifier" ,
-  components: {CustomButton, PvColumn, PvDatable, CustomInputText, CustomNavbar, CustomSidebar},
+  components: {PvToast, CustomButton, PvColumn, PvDatable, CustomInputText, CustomNavbar, CustomSidebar},
   data(){
     const uiStore = useUiStore();
     return {
@@ -34,7 +34,7 @@ export default defineComponent({
           this.usages.push(usage);
         });
       }).catch((_) => {
-        alert("No se encontraron Consumos");
+        this.$toast.add({ severity: 'error', summary: 'No se encontraron consumos', detail: 'No existen consumos disponibles para este número de placa', life: 3000 });
       });
     }
   },
@@ -69,6 +69,9 @@ export default defineComponent({
         <pv-column class="bg-black-alpha-80 text-white" field="vehicleIdentifier" header="Placa"></pv-column>
       </pv-datable>
     </div>
+    <br>
+    <br>
+    <pv-toast/>
 
   </section>
 </template>

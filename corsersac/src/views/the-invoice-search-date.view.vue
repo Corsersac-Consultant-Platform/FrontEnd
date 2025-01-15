@@ -4,14 +4,14 @@ import CustomSidebar from "@/components/custom-sidebar.component.vue";
 import CustomNavbar from "@/components/custom-navbar.component.vue";
 import {useUiStore} from "@/stores/ui.ts";
 import CustomInputText from "@/components/custom-input-text.component.vue";
-import {Column as PvColumn, DataTable as PvDatable} from "primevue";
+import {Column as PvColumn, DataTable as PvDatable, Toast as PvToast} from "primevue";
 import {InvoiceService} from "@/helpers/invoice.service.ts";
 import {Invoice} from "@/models/invoice.model.ts";
 import CustomButton from "@/components/custom-button.component.vue";
 
 export default defineComponent({
   name: "the-invoice-search-date" ,
-  components: {CustomButton, PvColumn, PvDatable, CustomInputText, CustomNavbar, CustomSidebar},
+  components: {PvToast, CustomButton, PvColumn, PvDatable, CustomInputText, CustomNavbar, CustomSidebar},
   data(){
     const uiStore = useUiStore();
     return {
@@ -34,7 +34,7 @@ export default defineComponent({
           this.invoices.push(invoice);
         });
       }).catch((_) => {
-        alert("No se encontraron facturas");
+        this.$toast.add({ severity: 'error', summary: 'No se encontraron facturas', detail: 'No existen facturas disponibles para esta fecha', life: 3000 });
       });
     }
   },
@@ -70,7 +70,9 @@ export default defineComponent({
         <pv-column  class="bg-black-alpha-80 text-white" field="statusId" header="Estado" style="width: 10%"></pv-column>
       </pv-datable>
     </div>
-
+    <br>
+    <br>
+    <pv-toast/>
   </section>
 </template>
 

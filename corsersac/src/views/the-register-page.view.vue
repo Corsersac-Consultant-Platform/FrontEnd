@@ -23,13 +23,13 @@ export default defineComponent({
       await this.authService.signUp(signUpRequest).then(
           response => {
              if (response.status === 200){
-                alert("Usuario registrado correctamente");
+               this.$toast.add({ severity: 'success', summary: 'Usuario registrado correctamente', detail: 'Ya se encuentra registrado en el sistema, vuelva al inicio de sesión e ingrese sus datos', life: 3000 });
                 this.navigator.push("/");
              }
           }
       ).catch(
           _ => {
-            alert("Error al registrar usuario");
+            this.$toast.add({ severity: 'error', summary: 'Ocurrio un error al registrar al usuario', detail: 'Recuerde que la contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula, un número y un carácter especial', life: 3000 });
           }
       )
     }
@@ -50,6 +50,7 @@ export default defineComponent({
     <div class="mt-7">
       <CustomIndicator title="¿Ya estas registrado?"  on-redirect-route="/"/>
     </div>
+    <pv-toast/>
   </section>
 </template>
 
