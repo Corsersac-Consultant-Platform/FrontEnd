@@ -8,6 +8,7 @@ import {Column as PvColumn, DataTable as PvDatable, Toast as PvToast} from "prim
 import {InvoiceService} from "@/helpers/invoice.service.ts";
 import {Invoice} from "@/models/invoice.model.ts";
 import CustomButton from "@/components/custom-button.component.vue";
+import {InvoiceTypes} from "@/enums/invoice-types.ts";
 
 export default defineComponent({
   name: "the-invoice-search-date" ,
@@ -30,7 +31,8 @@ export default defineComponent({
       await this.invoiceService.getInvoiceByDate(this.date).then((response) => {
         response.data.map((invoiceResponse : any) => {
           const {id, number, amount, serie, register, statusId, emitDate, name} = invoiceResponse;
-          const invoice = new Invoice(id,emitDate, number, serie,register,name, amount, statusId);
+          const defaultStatus = InvoiceTypes[statusId].toString();
+          const invoice = new Invoice(id,emitDate, number, serie,register,name, amount, defaultStatus);
           this.invoices.push(invoice);
         });
       }).catch((_) => {
@@ -67,7 +69,7 @@ export default defineComponent({
         <pv-column class="bg-black-alpha-80 text-white" field="amount" header="Monto" style="width: 15%"></pv-column>
         <pv-column class="bg-black-alpha-80 text-white" field="serie" header="Serie" style="width: 15%"></pv-column>
         <pv-column class="bg-black-alpha-80 text-white" field="register" header="Registro" style="width: 15%"></pv-column>
-        <pv-column  class="bg-black-alpha-80 text-white" field="statusId" header="Estado" style="width: 10%"></pv-column>
+        <pv-column  class="bg-black-alpha-80 text-white" field="status" header="Estado" style="width: 10%"></pv-column>
       </pv-datable>
     </div>
     <br>
