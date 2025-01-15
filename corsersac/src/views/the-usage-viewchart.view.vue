@@ -12,7 +12,7 @@ export default defineComponent({
     const uiStore = useUiStore();
     return {
       usageService: new UsageService(),
-      year: null,
+      year: 0,
       chartData: {},
       chartOptions: {},
       uiStore
@@ -108,6 +108,8 @@ export default defineComponent({
       </div>
       <pv-chart type="bar" :data="chartData" :options="chartOptions" class="h-[30rem] bg-white"  />
     </div>
+    <br>
+    <br>
   </section>
 </template>
 

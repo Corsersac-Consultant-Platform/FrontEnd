@@ -16,7 +16,7 @@ export default defineComponent({
 <template>
   <nav
       :class="[
-        'bg-white h-screen p-4 shadow-lg fixed transition-all duration-300 w-30rem left-0',
+        'bg-white h-screen p-4 shadow-lg fixed transition-all duration-300 w-30rem left-0 z-99',
         uiStore.sidebarOpen ? 'block' : 'hidden'
       ]">
     <div class="flex flex-column items-center">

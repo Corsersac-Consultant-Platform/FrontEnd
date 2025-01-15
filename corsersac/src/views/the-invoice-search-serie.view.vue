@@ -269,8 +269,6 @@ button{
   border-radius: 0.5rem;
 }
 
-
-
 .table-container{
   width: 60%;
   margin: 0 auto;
