@@ -56,7 +56,7 @@ export default defineComponent({
     </section>
     <div class="flex flex-column lg:flex-row gap-5 align-items-center justify-content-center">
       <input type="text" v-model="vehicleIdentifier" placeholder="Número de placa" class="w-4/5"/>
-      <CustomButton text="Buscar" @onEvent="getUsages"/>
+      <button @click="getUsages" class="w-3 md:w-2 lg:w-1 text-white border-transparent">Buscar</button>
     </div>
 
     <div class="table-container">
@@ -94,5 +94,12 @@ input{
   border-radius: 5px;
   padding: 0.5rem;
   border-color: transparent;
+}
+
+div button{
+  border-radius: 5px;
+  padding: 0.5rem;
+  border-color: transparent;
+  background-color: mediumseagreen;
 }
 </style>

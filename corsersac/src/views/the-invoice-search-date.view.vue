@@ -107,9 +107,9 @@ export default defineComponent({
       <input
           type="date"
           v-model="date"
-          class="w-10rem h-3rem border-transparent text-white font-bold"
+          class="w-10rem h-3rem border-transparent font-bold"
       />
-      <CustomButton text="Buscar" @onEvent="getInvoices" />
+      <button @click="getInvoices" class="w-3 md:w-2 lg:w-1 text-white border-transparent">Buscar</button>
     </div>
 
     <div class="table-container mt-8">
@@ -282,6 +282,13 @@ button{
 input{
   border-radius: 5px;
   padding: 0.5rem;
+  background-color: white;
+}
+
+div button{
+  border-radius: 5px;
+  padding: 0.5rem;
+  border-color: transparent;
   background-color: mediumseagreen;
 }
 </style>

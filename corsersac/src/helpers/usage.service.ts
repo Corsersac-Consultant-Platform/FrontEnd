@@ -12,4 +12,7 @@ export class UsageService{
     async getUsageByVehicle(vehicleIdentifier: string){
         return await http.get(`${this.endpoint}/vehicle?vehicleIdentifier=${vehicleIdentifier}`);
     }
+    async countUsageByYearPerCenter(year: number){
+        return await http.get(`${this.endpoint}/year?year=${year}`);
+    }
 }

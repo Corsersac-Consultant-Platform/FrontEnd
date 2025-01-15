@@ -5,9 +5,19 @@ import CustomSidebar from "@/components/custom-sidebar.component.vue";
 import {useUiStore} from "@/stores/ui.ts";
 import CustomButton from "@/components/custom-button.component.vue";
 import SearchOption from "@/components/search-option.component.vue";
+import * as util from "node:util";
+import {UtilManager} from "@/utils/utilManager.ts";
 
 export default defineComponent({
   name: "the-usage-options-page",
+  computed: {
+    UtilManager() {
+      return UtilManager
+    },
+    util() {
+      return util
+    }
+  },
   components: {SearchOption, CustomButton, CustomSidebar, CustomNavbar},
   data(){
     const uiStore = useUiStore();
@@ -35,16 +45,22 @@ export default defineComponent({
         <i class="pi pi-bars text-lg text-white"></i>
       </button>
     </section>
-    <div class="flex flex-column lg:flex-row justify-content-center align-items-center gap-5">
-      <SearchOption title="Buscar por fecha" avatar-url="https://icon-library.com/images/date-icon-png/date-icon-png-7.jpg" on-redirect-route="/usage-search-date"/>
-      <SearchOption title="Seleccionar rango de fechas" avatar-url="https://static.thenounproject.com/png/204897-200.png" on-redirect-route="/usage-range-date"/>
-      <SearchOption title="Buscar por placa" avatar-url="https://cdn-icons-png.flaticon.com/512/290/290081.png" on-redirect-route="/usage-vehicleIdentifier"/>
-    </div>
+      <div v-if="UtilManager.instance.isAdminOrTester()" class="flex flex-column lg:flex-row flex-wrap justify-content-center align-items-center gap-5 content" >
+        <SearchOption title="Buscar por fecha" avatar-url="https://icon-library.com/images/date-icon-png/date-icon-png-7.jpg" on-redirect-route="/usage-search-date"/>
+        <SearchOption title="Seleccionar rango de fechas" avatar-url="https://static.thenounproject.com/png/204897-200.png" on-redirect-route="/usage-range-date"/>
+        <SearchOption title="Buscar por placa" avatar-url="https://cdn-icons-png.flaticon.com/512/290/290081.png" on-redirect-route="/usage-vehicleIdentifier"/>
+        <SearchOption title="Visualizar gráfico" avatar-url="https://cdn-icons-png.flaticon.com/512/290/290081.png" on-redirect-route="/usage-viewchart"/>
+      </div>
+      <div v-else class="flex flex-column lg:flex-row flex-wrap justify-content-center align-items-center gap-5 content">
+        <SearchOption title="Buscar por fecha" avatar-url="https://icon-library.com/images/date-icon-png/date-icon-png-7.jpg" on-redirect-route="/usage-search-date"/>
+        <SearchOption title="Seleccionar rango de fechas" avatar-url="https://static.thenounproject.com/png/204897-200.png" on-redirect-route="/usage-range-date"/>
+        <SearchOption title="Buscar por placa" avatar-url="https://cdn-icons-png.flaticon.com/512/290/290081.png" on-redirect-route="/usage-vehicleIdentifier"/>
+      </div>
   </section>
 </template>
 
 <style scoped>
-div{
+.content{
   margin-top: 150px;
 }
 button{

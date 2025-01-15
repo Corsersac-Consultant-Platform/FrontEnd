@@ -105,9 +105,9 @@ export default defineComponent({
     </section>
 
       <div class="flex flex-column lg:flex-row gap-5 align-items-center justify-content-center content">
-        <input type="date" v-model="startDate" class="w-10rem h-3rem border-transparent text-white font-bold">
-        <input type="date" v-model="endDate" class="w-10rem h-3rem border-transparent text-white font-bold">
-        <CustomButton text="Buscar" @onEvent="getInvoices"/>
+        <input type="date" v-model="startDate" class="w-10rem h-3rem border-transparent font-bold">
+        <input type="date" v-model="endDate" class="w-10rem h-3rem border-transparent  font-bold">
+        <button @click="getInvoices" class="w-3 md:w-2 lg:w-1 text-white border-transparent">Buscar</button>
       </div>
 
     <div class="table-container mt-8">
@@ -271,7 +271,6 @@ button{
   border-radius: 0.5rem;
 }
 
-
 .table-container{
   width: 60%;
   margin: 0 auto;
@@ -280,6 +279,12 @@ button{
 input{
   border-radius: 5px;
   padding: 0.5rem;
+  background-color: white;
+}
+div button{
+  border-radius: 5px;
+  padding: 0.5rem;
+  border-color: transparent;
   background-color: mediumseagreen;
 }
 </style>

@@ -63,6 +63,11 @@ const router = createRouter({
           path: '/usage-vehicleIdentifier',
           name: 'usage-vehicleIdentifier-page',
           component: () => import('../views/the-usage-vehicleIdentifier.view.vue')
+      },
+      {
+          path: '/usage-viewchart',
+          name: 'usage-viewchart-page',
+          component: () => import('../views/the-usage-viewchart.view.vue')
       }
 
   ],
@@ -70,11 +75,15 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
    const token = UtilManager.instance.getCookies("Token");
+   const isAdminOrTester = UtilManager.instance.isAdminOrTester();
     if (token && (to.name == "auth" || to.name == "sign-up" || to.name == "recover-password" || to.name == "confirm-password")) {
         next({ name: 'invoice-options-page' })
     }
     else if (!token && to.name !== "auth" && to.name !== "sign-up" && to.name !== "recover-password" && to.name !== "confirm-password") {
         next({ name: 'auth' });
+    }
+    else if (!isAdminOrTester && to.name == "usage-viewchart-page"){
+        next({ name: 'usage-options-page' });
     }
     else{
         next()

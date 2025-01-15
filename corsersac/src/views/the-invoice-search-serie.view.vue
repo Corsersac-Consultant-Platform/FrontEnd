@@ -105,7 +105,7 @@ export default defineComponent({
 
     <div class="flex flex-column lg:flex-row gap-5 align-items-center justify-content-center content">
       <input type="text" v-model="serie" placeholder="Número de serie" class="w-4/5"/>
-      <CustomButton text="Buscar" @onEvent="getInvoices" />
+      <button @click="getInvoices" class="w-3 md:w-2 lg:w-1 text-white border-transparent">Buscar</button>
     </div>
 
     <div class="table-container mt-8">
@@ -279,6 +279,12 @@ button{
 input{
   border-radius: 5px;
   padding: 0.5rem;
-  border: transparent;
+  border-color: transparent;
+}
+div button{
+  border-radius: 5px;
+  padding: 0.5rem;
+  border-color: transparent;
+  background-color: mediumseagreen;
 }
 </style>
