@@ -104,11 +104,22 @@ export default defineComponent({
       </button>
     </section>
 
-      <div class="flex flex-column lg:flex-row gap-5 align-items-center justify-content-center content">
-        <input type="date" v-model="startDate" class="w-10rem h-3rem border-transparent font-bold">
-        <input type="date" v-model="endDate" class="w-10rem h-3rem border-transparent  font-bold">
-        <button @click="getInvoices" class="w-3 md:w-2 lg:w-1 text-white border-transparent">Buscar</button>
+      <div v-if="utilManager.isAdminOrTester()" class="flex flex-column lg:flex-row gap-5 align-items-center justify-content-center content">
+        <div class="flex w-full justify-content-center align-items-center gap-5">
+          <input type="date" v-model="startDate" class="w-10rem h-3rem border-transparent font-bold">
+          <input type="date" v-model="endDate" class="w-10rem h-3rem border-transparent  font-bold">
+        </div>
+        <div class="flex  w-full justify-content-center align-items-center gap-5">
+          <button @click="getInvoices" class="w-3 md:w-2 lg:w-1 text-white border-transparent">Buscar</button>
+          <button @click="utilManager.exportDataToExcel(invoices, `facturas.xls` )" class="w-5 md:w-4 lg:w-2 text-white border-transparent">Exportar a Excel</button>
+        </div>
       </div>
+
+    <div v-else class="flex flex-column lg:flex-row gap-5 align-items-center justify-content-center content">
+      <input type="date" v-model="startDate" class="w-10rem h-3rem border-transparent font-bold">
+      <input type="date" v-model="endDate" class="w-10rem h-3rem border-transparent  font-bold">
+      <button @click="getInvoices" class="w-3 md:w-2 lg:w-1 text-white border-transparent">Buscar</button>
+    </div>
 
     <div class="table-container mt-8">
       <pv-datable

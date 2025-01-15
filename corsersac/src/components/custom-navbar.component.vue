@@ -12,7 +12,6 @@ export default defineComponent({
     <ul class="flex gap-5 text-xl xl:text-2xl mr-3 mt-5 ">
       <li><a class="text-black-alpha-90" href="/">Visualización de facturas</a></li>
       <li><a class="text-black-alpha-90" href="/usage-options">Detalles de consumo</a></li>
-      <li><a class="text-black-alpha-90" href="/">Saldos por documento</a></li>
     </ul>
   </nav>
 </template>

@@ -103,12 +103,14 @@ export default defineComponent({
       </button>
     </section>
 
-    <div class="flex flex-column lg:flex-row gap-5 align-items-center justify-content-center content">
-      <input
-          type="date"
-          v-model="date"
-          class="w-10rem h-3rem border-transparent font-bold"
-      />
+    <div v-if="utilManager.isAdminOrTester()" class="flex flex-column lg:flex-row gap-5 align-items-center justify-content-center content">
+        <input type="date" v-model="date" class="w-10rem h-3rem border-transparent font-bold">
+        <button @click="getInvoices" class="w-3 md:w-2 lg:w-1 text-white border-transparent">Buscar</button>
+        <button @click="utilManager.exportDataToExcel(invoices, `facturas.xls` )" class="w-4 md:w-3 lg:w-1 text-white border-transparent">Exportar a Excel</button>
+    </div>
+
+    <div v-else class="flex flex-column lg:flex-row gap-5 align-items-center justify-content-center content">
+      <input type="date" v-model="date" class="w-10rem h-3rem border-transparent  font-bold">
       <button @click="getInvoices" class="w-3 md:w-2 lg:w-1 text-white border-transparent">Buscar</button>
     </div>
 

@@ -103,8 +103,14 @@ export default defineComponent({
       </button>
     </section>
 
-    <div class="flex flex-column lg:flex-row gap-5 align-items-center justify-content-center content">
-      <input type="text" v-model="serie" placeholder="Número de serie" class="w-4/5"/>
+    <div v-if="utilManager.isAdminOrTester()" class="flex flex-column lg:flex-row gap-5 align-items-center justify-content-center content">
+      <input type="text" placeholder="Numero de serie" v-model="serie" class="w-4/5">
+        <button @click="getInvoices" class="w-3 md:w-2 lg:w-1 text-white border-transparent">Buscar</button>
+        <button @click="utilManager.exportDataToExcel(invoices, `facturas.xls` )" class="w-4 md:w-3 lg:w-1 text-white border-transparent">Exportar a Excel</button>
+    </div>
+
+    <div v-else class="flex flex-column lg:flex-row gap-5 align-items-center justify-content-center content">
+      <input type="text" placeholder="INumero de serie" v-model="serie" class="w-4/5">
       <button @click="getInvoices" class="w-3 md:w-2 lg:w-1 text-white border-transparent">Buscar</button>
     </div>
 

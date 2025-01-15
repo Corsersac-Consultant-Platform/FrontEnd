@@ -1,4 +1,4 @@
-
+import * as xlsx from "xlsx";
 export class UtilManager{
     private static _instance: UtilManager;
     private constructor() {}
@@ -36,5 +36,12 @@ export class UtilManager{
             return decodedPayload["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]=== "ADMIN" || decodedPayload["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]=== "TESTER";
         }
         return false;
+    }
+
+    exportDataToExcel(data: any, fileName: string) {
+        const ws = xlsx.utils.json_to_sheet(data);
+        const wb = xlsx.utils.book_new();
+        xlsx.utils.book_append_sheet(wb, ws, "Datos de facturas");
+        xlsx.writeFile(wb, fileName);
     }
 }

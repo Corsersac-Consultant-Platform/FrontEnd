@@ -32,11 +32,6 @@ export default defineComponent({
             <i class="pi pi-chart-bar"></i> Detalles de consumo
           </a>
         </li>
-        <li>
-          <a class="text-black-alpha-90 text-lg flex items-center gap-3 hover:text-blue-500" href="/">
-            <i class="pi pi-wallet"></i> Saldos por documento
-          </a>
-        </li>
         <button
             @click="uiStore.toggleSidebar()" class="w-2 p-2 border-transparent">
           <i class="pi pi-times"></i>
