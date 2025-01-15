@@ -37,7 +37,7 @@ export default defineComponent({
     <section class="sidebar-content bg-white p-2 lg:hidden w-full">
       <CustomSidebar/>
       <img src="../assets/corsersac-logo.webp" alt="Corsersac Logo" class="w-6" />
-      <button @click="toggleSidebar" class="w-4rem h-3rem  border-transparent bg-black-alpha-90">
+      <button @click="toggleSidebar" class="w-4rem h-3rem  border-transparent bg-black-alpha-90 sm:mt-3 md:mt-5">
         <i class="pi pi-bars text-lg text-white"></i>
       </button>
     </section>
@@ -52,6 +52,8 @@ export default defineComponent({
         <SearchOption title="Seleccionar rango de fechas" avatar-url="https://static.thenounproject.com/png/204897-200.png" on-redirect-route="/usage-range-date"/>
         <SearchOption title="Buscar por placa" avatar-url="https://cdn-icons-png.flaticon.com/512/290/290081.png" on-redirect-route="/usage-vehicleIdentifier"/>
       </div>
+    <br>
+    <br>
   </section>
 </template>
 

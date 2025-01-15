@@ -98,7 +98,7 @@ export default defineComponent({
     <section class="sidebar-content bg-white p-2 lg:hidden w-full">
       <CustomSidebar />
       <img src="../assets/corsersac-logo.webp" alt="Corsersac Logo" class="w-6" />
-      <button @click="toggleSidebar" class="w-4rem h-3rem border-transparent bg-black-alpha-90">
+      <button @click="toggleSidebar" class="w-4rem h-3rem border-transparent bg-black-alpha-90 sm:mt-3 md:mt-5">
         <i class="pi pi-bars text-lg text-white"></i>
       </button>
     </section>
@@ -254,7 +254,8 @@ export default defineComponent({
       </pv-datable>
     </div>
 
-    <br /><br />
+    <br />
+    <br />
     <pv-toast />
   </section>
 
