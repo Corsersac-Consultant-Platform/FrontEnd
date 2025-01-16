@@ -9,7 +9,7 @@ import router from './router'
 
 const app = createApp(App)
 import PrimeVue from 'primevue/config'
-import {Column, DataTable, Toast} from "primevue";
+import {Button, Column, DataTable, Dialog, Toast} from "primevue";
 import Chart from "primevue/chart";
 app.use(PrimeVue,{
     // Default theme configuration
@@ -27,6 +27,8 @@ app.use(router)
 app.component('pv-datable', DataTable)
 app.component('pv-column', Column)
 app.component('pv-chart', Chart)
+app.component('pv-dialog', Dialog)
 app.use(ToastService);
 app.component('pv-toast', Toast)
+app.component('pv-button', Button)
 app.mount('#app')

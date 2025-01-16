@@ -1,4 +1,5 @@
 import * as xlsx from "xlsx";
+
 export class UtilManager{
     private static _instance: UtilManager;
     private constructor() {}
@@ -43,5 +44,9 @@ export class UtilManager{
         const wb = xlsx.utils.book_new();
         xlsx.utils.book_append_sheet(wb, ws, "Datos de facturas");
         xlsx.writeFile(wb, fileName);
+    }
+    getPdfFromFileName(serie:string, number:string){
+        const fileName = `${serie}-${number}.pdf`;
+        return `http://localhost:3000/pdfs/${fileName}#toolbar=0`;
     }
 }

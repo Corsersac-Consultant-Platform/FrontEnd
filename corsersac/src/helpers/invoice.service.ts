@@ -17,4 +17,8 @@ export class InvoiceService{
     async updateInvoiceStatus(id: number, statusId: number){
         return await http.patch(`${this.endpoint}/update-status/${id}`, statusId);
     }
+
+    async invoiceExists(serie: string, number: string){
+        return await http.get(`${this.endpoint}/exists?serie=${serie}&number=${number}`);
+    }
 }

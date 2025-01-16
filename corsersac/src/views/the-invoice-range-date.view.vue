@@ -49,13 +49,19 @@ export default defineComponent({
     },
     async updateInvoiceStatus(id: number) {
       try {
-        const newStatus = this.statusUpdates[id];
-        const statusEntry = Object.entries(InvoiceTypes).find(([key]) => key === newStatus);
+        const newStatus = this.statusUpdates[id] as string;
+        const formattedStatus = newStatus
+            .trim()
+            .split(/\s+/)
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+            .join(' ');
+
+        const statusEntry = Object.entries(InvoiceTypes).find(([key]) => key === formattedStatus);
         if (!statusEntry) {
           this.$toast.add({
             severity: 'error',
-            summary: 'Estado no válido',
-            detail: 'El estado de la factura seleccionado no es válido',
+            summary: 'Error al actualizar',
+            detail: 'Estado no valido, los estados validos son: ' + Object.keys(InvoiceTypes).join(', '),
             life: 3000,
           });
           return;
@@ -64,7 +70,10 @@ export default defineComponent({
         const statusId = statusEntry[1] as number;
         this.invoices = this.invoices.map((invoice) => {
           if (invoice.id === id) {
-            invoice.status = newStatus;
+            invoice.status =  newStatus.trim()
+                .split(/\s+/)
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                .join(' ');
           }
           return invoice;
         });
@@ -75,11 +84,12 @@ export default defineComponent({
           detail: 'El estado de la factura ha sido actualizado correctamente',
           life: 3000,
         });
+        this.editMode = false;
       } catch (error) {
         this.$toast.add({
           severity: 'error',
           summary: 'Error al actualizar',
-          detail: 'No se pudo actualizar el estado de la factura',
+          detail: 'Estado no valido, los estados validos son: ' + Object.keys(InvoiceTypes).join(', '),
           life: 3000,
         });
       }

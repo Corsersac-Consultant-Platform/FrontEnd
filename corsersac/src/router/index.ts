@@ -68,6 +68,11 @@ const router = createRouter({
           path: '/usage-viewchart',
           name: 'usage-viewchart-page',
           component: () => import('../views/the-usage-viewchart.view.vue')
+      },
+      {
+          path: '/validate-invoice',
+          name: 'validate-invoice-page',
+            component: () => import('../views/the-validate-invoice.view.vue')
       }
 
   ],

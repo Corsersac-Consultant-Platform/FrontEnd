@@ -35,10 +35,11 @@ export default defineComponent({
         <i class="pi pi-bars text-lg text-white"></i>
       </button>
     </section>
-    <div class="flex flex-column lg:flex-row justify-content-center align-items-center gap-5">
+    <div class="flex flex-column lg:flex-row flex-wrap justify-content-center align-items-center gap-5">
       <SearchOption title="Buscar por fecha" avatar-url="https://icon-library.com/images/date-icon-png/date-icon-png-7.jpg" on-redirect-route="/invoice-search-date"/>
       <SearchOption title="Seleccionar rango de fechas" avatar-url="https://static.thenounproject.com/png/204897-200.png" on-redirect-route="/invoice-range-date"/>
       <SearchOption title="Buscar por Número de serie" avatar-url="https://cdn-icons-png.flaticon.com/512/290/290081.png" on-redirect-route="/invoice-search-serie"/>
+      <SearchOption title="Validar por documento" avatar-url="https://icon-library.com/images/pdf-icon-svg/pdf-icon-svg-24.jpg" on-redirect-route="/validate-invoice"/>
     </div>
     <br>
     <br>

@@ -9,7 +9,7 @@ export default defineComponent({
   name: "the-usage-viewchart",
   components: {CustomSidebar, CustomNavbar},
   data(){
-    const uiStore = useUiStore();
+      const uiStore = useUiStore();
     return {
       usageService: new UsageService(),
       year: 0,
